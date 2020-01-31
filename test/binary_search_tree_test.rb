@@ -8,10 +8,10 @@ class BinarySearchTreeTest < Minitest::Test
   def setup
     # require "pry"; binding.pry
     @bst = BinarySearchTree.new
-    @node_one = @bst.insert(61)
-    @node_two = @bst.insert(16)
-    @node_three = @bst.insert(92)
-    @node_four = @bst.insert(50)
+    @node_one = @bst.insert(61, "Bill & Ted's Excellent Adventure")
+    @node_two = @bst.insert(16, "Johnny English")
+    @node_three = @bst.insert(92, "Sharknado 3")
+    @node_four = @bst.insert(50, "Hannibal Buress: Animal Furnace")
     # require "pry"; binding.pry
   end
 
@@ -29,12 +29,12 @@ class BinarySearchTreeTest < Minitest::Test
   end
 
   def test_it_has_lefts
-    #skip
+    # skip
     assert_equal @node_two, @node_one.left
   end
 
   def test_it_has_rights
-    #skip
+    # skip
     assert_equal @node_three, @node_one.right
     assert_equal @node_four, @node_two.right
   end
