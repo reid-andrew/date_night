@@ -6,6 +6,7 @@ class Node
     @score = score
     @left = nil
     @right = nil
+
   end
 
 

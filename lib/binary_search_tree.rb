@@ -10,17 +10,21 @@ class BinarySearchTree
     if !@root.score
       node = Node.new(score)
       @root = node
-      require "pry"; binding.pry
       return node
     elsif score == node.score
-      require "pry"; binding.pry
       return node
     elsif score < node.score
-      node.left = score
-      insert(score, node.left)
+      if node.left
+        insert(score, node.left)
+      else
+        node.left = Node.new(score)
+      end
     elsif score > node.score
-      node.right = score
-      insert(score, node.right)
+      if node.right
+        insert(score, node.right)
+      else
+        node.right = Node.new(score)
+      end
     else
       node = Node.new(score)
       return node
