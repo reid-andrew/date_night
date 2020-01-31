@@ -1,10 +1,13 @@
 class Node
-  def initialize(score, title)
+  attr_reader :score
+  attr_accessor :left, :right
+
+  def initialize(score)
     @score = score
-    @title = title
     @left = nil
     @right = nil
-    @depth = nil
   end
+
+
 
 end
