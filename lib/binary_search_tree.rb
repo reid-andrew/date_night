@@ -5,7 +5,6 @@ class BinarySearchTree
     @root = Node.new(root_score, root_title)
   end
 
-
   def insert(score, title, node = @root)
     if !@root.score
       node = Node.new(score, title)
@@ -30,6 +29,4 @@ class BinarySearchTree
       return node
     end
   end
-
-
 end
