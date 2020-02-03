@@ -12,7 +12,7 @@ class BinarySearchTreeTest < Minitest::Test
     @node_two = @tree.insert(16, "Johnny English")
     @node_three = @tree.insert(92, "Sharknado 3")
     @node_four = @tree.insert(50, "Hannibal Buress: Animal Furnace")
-    # require "pry"; binding.pry
+    require "pry"; binding.pry
   end
 
   def test_it_exists

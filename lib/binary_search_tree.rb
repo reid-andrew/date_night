@@ -56,6 +56,16 @@ class BinarySearchTree
     end
   end
 
+  def max(node = @root)
+    if !node.score
+      nil
+    elsif node.right
+      max(node.right)
+    else
+      node.movie
+    end
+  end
+
 
 
 end
