@@ -12,7 +12,7 @@ class BinarySearchTreeTest < Minitest::Test
     @node_two = @tree.insert(16, "Johnny English")
     @node_three = @tree.insert(92, "Sharknado 3")
     @node_four = @tree.insert(50, "Hannibal Buress: Animal Furnace")
-    require "pry"; binding.pry
+    # require "pry"; binding.pry
   end
 
   def test_it_exists
@@ -48,5 +48,9 @@ class BinarySearchTreeTest < Minitest::Test
 
   def test_it_finds_max
     assert_equal ({"Sharknado 3"=>92}), @tree.max
+  end
+
+  def test_it_finds_min
+    assert_equal ({"Johnny English"=>16}), @tree.min
   end
 end
