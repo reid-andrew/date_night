@@ -45,4 +45,8 @@ class BinarySearchTreeTest < Minitest::Test
     assert_equal 1, @tree.depth_of(92)
     assert_equal 2, @tree.depth_of(50)
   end
+
+  def test_it_finds_max
+    assert_equal ({"Sharknado 3"=>92}), @tree.max
+  end
 end
