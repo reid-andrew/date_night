@@ -66,6 +66,15 @@ class BinarySearchTree
     end
   end
 
+  def min(node = @root)
+    if !node.score
+      nil
+    elsif node.left
+      min(node.left)
+    else
+      node.movie
+    end
+  end
 
 
 end
