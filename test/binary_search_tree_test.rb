@@ -7,43 +7,37 @@ class BinarySearchTreeTest < Minitest::Test
 
   def setup
     # require "pry"; binding.pry
-    @bst = BinarySearchTree.new
-    @node_one = @bst.insert(61, "Bill & Ted's Excellent Adventure")
-    @node_two = @bst.insert(16, "Johnny English")
-    @node_three = @bst.insert(92, "Sharknado 3")
-    @node_four = @bst.insert(50, "Hannibal Buress: Animal Furnace")
+    @tree = BinarySearchTree.new
+    @node_one = @tree.insert(61, "Bill & Ted's Excellent Adventure")
+    @node_two = @tree.insert(16, "Johnny English")
+    @node_three = @tree.insert(92, "Sharknado 3")
+    @node_four = @tree.insert(50, "Hannibal Buress: Animal Furnace")
     # require "pry"; binding.pry
   end
 
   def test_it_exists
     # skip
-    assert_instance_of BinarySearchTree, @bst
+    assert_instance_of BinarySearchTree, @tree
   end
 
   def test_it_inserts_nodes
     # skip
-    assert_instance_of Node, @node_one
-    # assert_instance_of Node, @node_two
-    # assert_instance_of Node, @node_three
-    # assert_instance_of Node, @node_four
+    assert_equal 0, @node_one
+    assert_equal 1, @node_two
+    assert_equal 1, @node_three
+    assert_equal 2, @node_four
   end
 
-  def test_it_has_lefts
+  def test_it_has_lefts_and_rights
     # skip
-    assert_equal @node_two, @node_one.left
+    assert_equal ({"Sharknado 3"=>92}), @tree.root.right.movie
+    assert_equal ({"Johnny English"=>16}), @tree.root.left.movie
+    assert_equal ({"Hannibal Buress: Animal Furnace"=>50}), @tree.root.left.right.movie
   end
 
-  def test_it_has_rights
-    # skip
-    assert_equal @node_three, @node_one.right
-    assert_equal @node_four, @node_two.right
+  def test_it_includes_scores
+    assert_equal true, @tree.include?(16)
+    assert_equal true, @tree.include?(50)
+    assert_equal false, @tree.include?(44)
   end
-
-  def test_it_has_a_depth
-    #skip
-    assert_equal 0, @node_one.depth
-    assert_equal 1, @node_two.depth 
-  end
-
-
 end

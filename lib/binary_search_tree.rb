@@ -1,32 +1,39 @@
 
 class BinarySearchTree
+  attr_reader :root, :movies
 
   def initialize(root_score = nil, root_title = nil)
-    @root = Node.new(root_score, root_title)
+    @root = Node.new(root_score, root_title, depth = nil)
   end
 
-  def insert(score, title, node = @root)
+  def insert(score, title)
     if !@root.score
-      node = Node.new(score, title)
+      node = Node.new(score, title, 0)
       @root = node
-      return node
-    elsif score == node.score
-      return node
-    elsif score < node.score
-      if node.left
-        insert(score, title, node.left)
-      else
-        node.left = Node.new(score, title)
-      end
-    elsif score > node.score
-      if node.right
-        insert(score, title, node.right)
-      else
-        node.right = Node.new(score, title)
-      end
+      @root.depth
     else
-      node = Node.new(score, title)
-      return node
+      @root.insert_node(score, title, @root)
     end
   end
+
+  def include?(score, node = @root)
+    if !node.score
+      false
+    elsif score == node.score
+      true
+    elsif score > node.score
+      if node.right
+        include?(score, node.right)
+      else
+        false
+      end
+    elsif score < node.score
+      if node.left
+        include?(score, node.left)
+      else
+        false
+      end
+    end
+  end
+
 end
