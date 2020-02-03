@@ -36,4 +36,26 @@ class BinarySearchTree
     end
   end
 
+  def depth_of(score, node = @root)
+    if !node.score
+      nil
+    elsif score == node.score
+      node.depth
+    elsif score > node.score
+      if node.right
+        depth_of(score, node.right)
+      else
+        nil
+      end
+    elsif score < node.score
+      if node.left
+        depth_of(score, node.left)
+      else
+        nil
+      end
+    end
+  end
+
+
+
 end
