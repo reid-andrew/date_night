@@ -76,5 +76,9 @@ class BinarySearchTree
     end
   end
 
+  def sort(node = min)
+
+  end
+
 
 end
