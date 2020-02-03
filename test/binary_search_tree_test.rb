@@ -53,4 +53,11 @@ class BinarySearchTreeTest < Minitest::Test
   def test_it_finds_min
     assert_equal ({"Johnny English"=>16}), @tree.min
   end
+
+  def test_it_sorts
+    assert_equal [{"Johnny English"=>16},
+      {"Hannibal Buress: Animal Furnace"=>50},
+      {"Bill & Ted's Excellent Adventure"=>61},
+      {"Sharknado 3"=>92}], @tree.sort
+  end
 end
